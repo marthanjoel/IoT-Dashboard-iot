@@ -15,7 +15,7 @@ The system integrates **MySQL** for data storage and provides real-time visualiz
 
 
 
-
+-----
 ## **⚙️ Tech Stack**
 - **Python 3**  
 - **Flask**  
@@ -54,7 +54,10 @@ python3 Arms.py
 Open browser at:
 👉 http://127.0.0.1:5000
 
-⚡ How the Simulation Works
+
+
+
+##**⚡ How the Simulation Works**
 Sensors are emulated: Random values are generated for temperature and humidity.
 
 Database storage: Each reading is stored inside MySQL for historical tracking.
@@ -106,5 +109,6 @@ Improve UI/UX with React or Vue for the web frontend.
 Joel Marthan Lutwama
 GitHub: @marthanjoel
 
-yaml
-Copy code
+
+
+
