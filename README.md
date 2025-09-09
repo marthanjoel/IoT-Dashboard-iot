@@ -54,7 +54,7 @@ python3 Arms.py
 Open browser at:
 👉 http://127.0.0.1:5000
 
-
+-------
 
 
 ##**⚡ How the Simulation Works**
@@ -68,7 +68,7 @@ Visualization: Tkinter + Matplotlib display a real-time graph of temperature tre
 
 Web dashboard: Flask serves the same data through a browser interface.
 
-
+-------
 
 ##**🔧 Challenges Faced**
 Compatibility issues between Flask and newer versions of Werkzeug and MarkupSafe.
@@ -79,7 +79,7 @@ Installing missing Python libraries (passlib, mysql-connector-python, Pillow).
 
 Permission issues when running Flask on port 80 (solved by switching to port 5000).
 
-
+--------
 
 ##**🛰️ Sensors & Devices Emulated**
 🌡️ Temperature Sensor (random values between 20°C – 40°C)
@@ -91,7 +91,7 @@ Permission issues when running Flask on port 80 (solved by switching to port 500
 💡 LED (Actuator) — ON/OFF simulation
 
 
-
+------
 ##**💡 Future Improvements**
 Integrate with real hardware (ESP32, Arduino, or Raspberry Pi).
 
