@@ -1,114 +1,77 @@
-### **IoT Dashboard**
+## **📊 IoT Dashboard (Flask + Tkinter Simulation)**
 
-A simple IoT Dashboard built with **Flask** (backend) and **Tkinter** (desktop UI) that allows monitoring and controlling IoT devices.  
-The system integrates **MySQL** for data storage and provides real-time visualization of temperature, humidity, and device states.
+### 🚀 Project Overview
+This project is an **IoT Dashboard** originally built with **Flask** and **MySQL** to visualize and log sensor/device data.  
+Since the original codebase focused on a web dashboard, we extended it by adding a **Tkinter simulation file** so that the project can also display data in a **desktop GUI**.
 
 ---
 
-## **🚀 Features**
-- 📊 Real-time monitoring of temperature & humidity  
-- 💡 Control devices like Fan & LED (ON/OFF)  
-- 🗄️ MySQL database integration for storing sensor data  
-- 📈 Graphs for temperature trends  
-- 🖥️ Tkinter GUI for local visualization  
-- 🌐 Flask-based web interface for remote access  
+## ⚙️** Setup Instructions**
 
+### 1️⃣ Clone the Repository
+git clone https://github.com/marthanjoel/IoT-Dashboard-iot.git
+cd IoT-Dashboard-iot
 
-
------
-## **⚙️ Tech Stack**
-- **Python 3**  
-- **Flask**  
-- **Tkinter**  
-- **MySQL**  
-- **Matplotlib**  
-- **Passlib** (for authentication)  
-
-
-
-
-## **🛠️ Setup Instructions**
-1. Clone the repository:
-
-   git clone https://github.com/marthanjoel/IoT-Dashboard-iot.git
-   cd IoT-Dashboard-iot
-Create a virtual environment and activate it:
-
+###2️⃣ Create Virtual Environment & Install Dependencies
 python3 -m venv venv
-source venv/bin/activate   # Linux/Mac
+source venv/bin/activate
+pip install flask mysql-connector-python passlib pillow
+sudo apt-get install python3-tk
 
-Install dependencies:
-pip install -r requirements.txt
-Setup MySQL:
-
+###3️⃣ Setup Database
+Login to MySQL:
+sudo mysql
+Then run:
+sql
 CREATE DATABASE iot_dashboard;
 CREATE USER 'aman'@'localhost' IDENTIFIED BY 'aman';
 GRANT ALL PRIVILEGES ON iot_dashboard.* TO 'aman'@'localhost';
 FLUSH PRIVILEGES;
-
-Import tables:
+EXIT;
+Import schema:
 mysql -u aman -p iot_dashboard < "Database Script.sql"
-Run Flask app:
 
+###4️⃣ Run the Flask App
 python3 Arms.py
-Open browser at:
-👉 http://127.0.0.1:5000
+Visit http://localhost:5000 to see the web dashboard.
 
--------
+##**🖥️ Tkinter Simulation**
+I created a new file tk_dashboard.py to visualize IoT sensor values in a desktop GUI.
 
+Run Tkinter Simulation:
+python3 tk_dashboard.py
+This opens a Tkinter window that simulates:
 
-##**⚡ How the Simulation Works**
-Sensors are emulated: Random values are generated for temperature and humidity.
+🌡️ Temperature readings
 
-Database storage: Each reading is stored inside MySQL for historical tracking.
+💧 Humidity readings
 
-Actuator control: Buttons simulate controlling a Fan and LED light (status is shown as ON/OFF).
+📡 Real-time updates every 2 seconds
 
-Visualization: Tkinter + Matplotlib display a real-time graph of temperature trends.
+----
+##🔍 **Challenges Faced**
+1.Flask app originally failed due to version mismatches (werkzeug, flask, markupsafe).
 
-Web dashboard: Flask serves the same data through a browser interface.
+2.Database login errors with MySQL users.
 
--------
+3.Had to downgrade Flask & dependencies to match project code.
 
-##**🔧 Challenges Faced**
-Compatibility issues between Flask and newer versions of Werkzeug and MarkupSafe.
-
-MySQL authentication errors (Access denied for user 'aman'@'localhost') fixed by updating user permissions.
-
-Installing missing Python libraries (passlib, mysql-connector-python, Pillow).
-
-Permission issues when running Flask on port 80 (solved by switching to port 5000).
-
---------
-
-##**🛰️ Sensors & Devices Emulated**
-🌡️ Temperature Sensor (random values between 20°C – 40°C)
-
-💧 Humidity Sensor (random values between 40% – 80%)
-
-🌀 Fan (Actuator) — ON/OFF simulation
-
-💡 LED (Actuator) — ON/OFF simulation
+4.Tkinter not part of the original repo — we had to install and code it manually.
 
 
-------
+##🛰️ **Devices / Sensors Emulated**
+Temperature sensor (simulated values in Tkinter GUI)
+
+Humidity sensor (simulated values in Tkinter GUI)
+
+IoT device logs stored in MySQL (via Flask backend)
+
+
 ##**💡 Future Improvements**
-Integrate with real hardware (ESP32, Arduino, or Raspberry Pi).
+Connect Tkinter GUI directly to live MySQL values.
 
-Use MQTT protocol to stream sensor data instead of random values.
+Add more sensors (light, motion, fan control).
 
-Add user authentication & roles for secure dashboard access.
+Build MQTT integration for real IoT devices.
 
-Store long-term data in a time-series database (e.g., InfluxDB).
-
-Deploy with Docker for easy portability.
-
-Improve UI/UX with React or Vue for the web frontend.
-
-👨‍💻 Author
-Joel Marthan Lutwama
-GitHub: @marthanjoel
-
-
-
-
+Containerize with Docker for easy deployment.
